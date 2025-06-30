@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- Debut SEO -->
+  <title>Mohamed Hamed | Cost Estimator & Industrial Designer</title>
+  <meta name="description" content="Personal website of Mohamed Hamed, showcasing expertise in industrial cost estimation and 3D design">
+  <meta name="keywords" content="cost estimator, mechanical designer, 3D modeling, personal website">
+  <!-- Fin SEO -->
+  <!-- Favicon (optionnel) -->
+  <link rel="icon" href="res/favicon.png" type="image/png">
+  <link rel="alternate icon" href="favicon.ico" type="image/x-icon">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      background-color: black;
+      font-family: 'Poppins', sans-serif;
+      color: white;
+    }
+
+    body {
+      visibility: hidden;
+      width: 100%;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    * {
+      box-sizing: border-box;
+      text-decoration: none;
+      border: none;
+      outline: none;
+    }
+
+    html {
+      font-size: 62.5%;
+    }
+
+    .top-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 20px;
+      background-color: black;
+      z-index: 110;
+    }
+
+    header {
+      margin-top: 20px;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 1rem 9%;
+      background-color: black;
+      filter: drop-shadow(10px);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 100;
+      box-sizing: border-box;
+    }
+
+    .logo {
+      font-size: 3rem;
+      color: #b74b4b;
+      font-weight: 800;
+      cursor: pointer;
+      transition: 0.5s ease;
+    }
+
+    .logo:hover {
+      transform: scale(1.1);
+    }
+
+    /* Ajout du bouton burger */
+    .menu-toggle {
+      display: none;
+      cursor: pointer;
+      width: 30px;
+      height: 21px;
+      position: relative;
+      z-index: 101;
+    }
+    
+    .menu-toggle span {
+      display: block;
+      position: absolute;
+      height: 3px;
+      width: 100%;
+      background: #b74b4b;
+      border-radius: 3px;
+      transition: all 0.3s ease;
+    }
+    
+    .menu-toggle span:nth-child(1) { top: 0; }
+    .menu-toggle span:nth-child(2) { top: 9px; }
+    .menu-toggle span:nth-child(3) { top: 18px; }
+
+    nav a {
+      font-size: 1.8rem;
+      color: white;
+      margin-left: 4rem;
+      font-weight: 500;
+      transition: 0.3s ease;
+      border-bottom: 3px solid transparent;
+    }
+
+    nav a:hover,
+    nav a.active {
+      color: #b74b4b;
+      border-bottom: 3px solid #b74b4b;
+    }
+
+    @media (max-width: 995px) {
+      .menu-toggle {
+        display: block;
+      }
+      
+      nav {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 40%;
+        height: 100vh;
+        padding-top: 8rem;
+        background-color: #161616;
+        transition: all 0.5s ease;
+        z-index: 100;
+      }
+      
+      nav.active {
+        right: 0;
+      }
+
+      nav a {
+        display: block;
+        font-size: 2rem;
+        margin: 3rem 2rem;
+        padding: 1rem;
+      }
+
+      nav a:hover,
+      nav a.active {
+        padding: 1rem;
+        border-radius: 0.5rem;
+        border-bottom: 0.5rem solid #b74b4b;
+      }
+    }
+
+    section {
+      min-height: 100vh;
+      padding: 8rem 9% 5rem;
+      margin-top: 0;
+    }
+
+    .home {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      gap: 8rem;
+      background-color: black;
+      flex-wrap: wrap;
+    }
+
+    .home-content {
+      flex: 1 1 100%;
+      max-width: 100%;
+    }
+
+    .home-content h3 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      font-weight: 700;
+    }
+
+    .home-content p {
+      font-size: 1.5rem;
+      line-height: 1.9;
+    }
+
+    span {
+      color: #b74b4b;
+    }
+
+    .image-text-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .image-text-row img {
+      flex-shrink: 0;
+      max-width: 100%;
+      height: auto;
+    }
+
+    .image-text-row p {
+      flex: 1;
+      line-height: 1.8;
+    }
+
+    /* Skills Section Styles */
+    .skills-section {
+      padding: 1rem 9%;
+      background-color: #0a0a0a;
+    }
+
+    .skills-section h2 {
+      font-size: 3rem;
+      text-align: center;
+      margin-bottom: 4rem;
+      color: #b74b4b;
+      position: relative;
+    }
+
+
+
+    .skills-intro {
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto 4rem;
+      font-size: 1.6rem;
+      opacity: 0.9;
+    }
+
+    .skills-categories {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 3rem;
+      margin-bottom: 4rem;
+    }
+
+    .category {
+      flex: 1;
+      min-width: 300px;
+      max-width: 400px;
+      background: #161616;
+      padding: 2.5rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(183, 75, 75, 0.1);
+      transition: transform 0.3s ease;
+      border: 1px solid #252525;
+    }
+
+    .category:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 16px rgba(183, 75, 75, 0.2);
+    }
+
+    .category h3 {
+      color: #b74b4b;
+      margin-top: 0;
+      font-size: 2rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .skills-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+    }
+
+    .skill-badge {
+      height: 3.5rem;
+      cursor: default;
+      transition: all 0.2s ease-in-out;
+      border-radius: 4px;
+      filter: grayscale(20%);
+      opacity: 0.9;
+    }
+
+    .skill-badge:hover {
+      transform: scale(1.1);
+      filter: brightness(1.2);
+      opacity: 1;
+    }
+
+    @media (max-width: 1000px) {
+      .home {
+        gap: 4rem;
+      }
+    }
+
+    @media (max-width: 995px) {
+      .home {
+        flex-direction: column;
+        margin: 5rem 4rem;
+      }
+
+      .home-content h3 {
+        font-size: 2.5rem;
+      }
+      
+      .category {
+        min-width: 100%;
+      }
+    }
+
+    @media (max-width: 768px) {
+      section {
+        padding: 8rem 5% 5rem;
+      }
+      
+      .skills-section {
+        padding: 5rem 5%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="top-bar"></div>
+
+  <!-- Header modifie avec bouton burger -->
+  <header>
+    <a href="index.html" class="logo"></a>
+    <div class="menu-toggle" id="mobile-menu">
+      <span></span><span></span><span></span>
+    </div>
+    <nav id="main-nav">
+      <a href="index.html">Home</a>
+      <a href="About_me.html">About me</a>
+      <a href="#" class="active">Skills</a>
+      <a href="Experience.html">Experience</a>
+      <a href="Projects.html">Projects</a>
+	  <a href="AI.html">AI Chat</a>
+      <a href="Contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <section class="home">
+    <div class="home-content">
+
+
+  <!-- Skills Section -->
+  <section id="skills" class="skills-section">
+    <h2>🛠️ Tools and skills</h2>
+    
+    
+    <div class="skills-categories">
+      <div class="category">
+        <h3><i class="fas fa-industry"></i> Manufacturing</h3>
+        <div class="skills-container">
+          <img class="skill-badge" src="https://img.shields.io/badge/Cost Estimation-0078D7?style=for-the-badge&logo=none&logoColor=white&color=0078D7" alt="Cost Estimation" />
+          <img class="skill-badge" src="https://img.shields.io/badge/Metal Fabrication-555555?style=for-the-badge&logo=none&logoColor=white&color=555555" alt="Metal Fabrication" />
+          <img class="skill-badge" src="https://img.shields.io/badge/Coating-006400?style=for-the-badge&logo=none&logoColor=white&color=006400" alt="Coating" />
+          <img class="skill-badge" src="https://img.shields.io/badge/Mastercam-FF6C00?style=for-the-badge&logo=mastercam&logoColor=white&color=FF6C00" alt="Mastercam" />
+          <img class="skill-badge" src="https://img.shields.io/badge/GCode-000000?style=for-the-badge&logo=none&logoColor=white&color=000000" alt="GCode" />
+          <img class="skill-badge" src="https://img.shields.io/badge/SigmaNest-000000?style=for-the-badge&logo=none&logoColor=white&color=000000" alt="SigmaNest" />
+          <img class="skill-badge" src="https://img.shields.io/badge/Industry 4.0-FF4500?style=for-the-badge&logo=none&logoColor=white&color=FF4500" alt="Industry 4.0" />
+          <img class="skill-badge" src="https://img.shields.io/badge/Lean Management-000000?style=for-the-badge&logo=none&logoColor=white&color=000000" alt="Lean Management" />
+          <img class="skill-badge" src="https://img.shields.io/badge/Six Sigma-000000?style=for-the-badge&logo=none&logoColor=white&color=000000" alt="Six Sigma" />
+        </div>
+      </div>
+      
+      <div class="category">
+        <h3><i class="fas fa-cube"></i> CAD & Design</h3>
+        <div class="skills-container">
+          <img class="skill-badge" src="https://img.shields.io/badge/3D Design-008080?style=for-the-badge&logo=none&logoColor=white&color=008080" alt="3D Design" />
+          <img class="skill-badge" src="https://img.shields.io/badge/SolidWorks-0078D7?style=for-the-badge&logo=solidworks&logoColor=white&color=0078D7" alt="SolidWorks" />
+          <img class="skill-badge" src="https://img.shields.io/badge/CATIA-DA291C?style=for-the-badge&logo=none&logoColor=white&color=DA291C" alt="CATIA" />
+          <img class="skill-badge" src="https://img.shields.io/badge/Siemens NX-004B87?style=for-the-badge&logo=none&logoColor=white&color=004B87" alt="Siemens NX" />
+          <img class="skill-badge" src="https://img.shields.io/badge/PTC Creo-0B5394?style=for-the-badge&logo=none&logoColor=white&color=0B5394" alt="PTC Creo" />
+          <img class="skill-badge" src="https://img.shields.io/badge/Inventor-FF6600?style=for-the-badge&logo=autodesk&logoColor=white&color=FF6600" alt="Inventor" />
+        </div>
+      </div>
+	        <div class="category">
+        <h3><i class="fas fa-cogs"></i> Engineering</h3>
+        <div class="skills-container">
+          <img class="skill-badge" src="https://img.shields.io/badge/Mechanical-808080?style=for-the-badge&logo=none&logoColor=white&color=808080" alt="Mechanical" />
+          <img class="skill-badge" src="https://img.shields.io/badge/Electrical-FFA500?style=for-the-badge&logo=none&logoColor=white&color=FFA500" alt="Electrical" />
+          <img class="skill-badge" src="https://img.shields.io/badge/Electromechanical-696969?style=for-the-badge&logo=none&logoColor=white&color=696969" alt="Electromechanical" />
+        </div>
+      </div>
+    </div>
+    
+    <div class="skills-categories">
+
+      
+      <div class="category">
+        <h3><i class="fas fa-database"></i> Data & Automation</h3>
+        <div class="skills-container">
+          <img class="skill-badge" src="https://img.shields.io/badge/Data Science-008080?style=for-the-badge&logo=none&logoColor=white&color=008080" alt="Data Science" />
+          <img class="skill-badge" src="https://img.shields.io/badge/Data Scraping-2E8B57?style=for-the-badge&logo=none&logoColor=white&color=2E8B57" alt="Data Scraping" />
+          <img class="skill-badge" src="https://img.shields.io/badge/Data Cleaning-1E90FF?style=for-the-badge&logo=none&logoColor=white&color=1E90FF" alt="Data Cleaning" />
+          <img class="skill-badge" src="https://img.shields.io/badge/Data Analysis-00008B?style=for-the-badge&logo=none&logoColor=white&color=00008B" alt="Data Analysis" />
+          <img class="skill-badge" src="https://img.shields.io/badge/Automation-0055ff?style=for-the-badge&logo=none&logoColor=white&color=0055ff" alt="Automation" />
+        </div>
+      </div>
+	   <div class="category">
+        <h3><i class="fas fa-file-excel"></i> Office & Productivity</h3>
+        <div class="skills-container">
+          <img class="skill-badge" src="https://img.shields.io/badge/Excel-217346?style=for-the-badge&logo=microsoft-excel&logoColor=white&color=217346" alt="Excel" />
+          <img class="skill-badge" src="https://img.shields.io/badge/VBA-861d6a?style=for-the-badge&logo=none&logoColor=white&color=861d6a" alt="VBA" />
+          <img class="skill-badge" src="https://img.shields.io/badge/Macro-4b8bbe?style=for-the-badge&logo=none&logoColor=white&color=4b8bbe" alt="Macro" />
+          <img class="skill-badge" src="https://img.shields.io/badge/Batch-000000?style=for-the-badge&logo=none&logoColor=white&color=000000" alt="Batch" />
+          <img class="skill-badge" src="https://img.shields.io/badge/Make-000000?style=for-the-badge&logo=none&logoColor=white&color=000000" alt="Make" />
+        </div>
+      </div>
+      
+      <div class="category">
+        <h3><i class="fas fa-code"></i> Programming</h3>
+        <div class="skills-container">
+          <img class="skill-badge" src="https://img.shields.io/badge/Python-306998?style=for-the-badge&logo=python&logoColor=white&color=306998" alt="Python" />
+          <img class="skill-badge" src="https://img.shields.io/badge/VB.NET-6a0dad?style=for-the-badge&logo=visual-basic&logoColor=white&color=6a0dad" alt="VB.NET" />
+          <img class="skill-badge" src="https://img.shields.io/badge/C%23-239120?style=for-the-badge&logo=c-sharp&logoColor=white&color=239120" alt="C#" />
+          <img class="skill-badge" src="https://img.shields.io/badge/C++-00599c?style=for-the-badge&logo=c%2B%2B&logoColor=white&color=00599c" alt="C++" />
+          <img class="skill-badge" src="https://img.shields.io/badge/HTML-E34F26?style=for-the-badge&logo=html5&logoColor=white&color=E34F26" alt="HTML" />
+          <img class="skill-badge" src="https://img.shields.io/badge/CSS-1572B6?style=for-the-badge&logo=css3&logoColor=white&color=1572B6" alt="CSS" />
+          <img class="skill-badge" src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black&color=F7DF1E" alt="JavaScript" />
+        </div>
+      </div>
+    </div>
+    
+  </section>
+
+  <script>
+    // Script pour le menu mobile
+    document.getElementById('mobile-menu').addEventListener('click', function() {
+      this.classList.toggle('active');
+      document.getElementById('main-nav').classList.toggle('active');
+    });
+
+    window.addEventListener('load', () => {
+      document.body.style.visibility = 'visible';
+    });
+  </script>
+</body>
+</html>

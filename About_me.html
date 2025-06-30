@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Debut SEO -->
+<title>Mohamed Hamed | Cost Estimator & Industrial Designer</title>
+<meta name="description" content="Personal website of Mohamed Hamed, showcasing expertise in industrial cost estimation and 3D design">
+<meta name="keywords" content="cost estimator, mechanical designer, 3D modeling, personal website">
+<!-- Fin SEO -->
+<!-- Favicon (optionnel) -->
+<link rel="icon" href="res/favicon.png" type="image/png">
+<link rel="alternate icon" href="res/favicon.ico" type="image/x-icon">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      background-color: black;
+      font-family: 'Poppins', sans-serif;
+      color: white;
+    }
+
+    body {
+      visibility: hidden;
+      width: 100%;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    * {
+      box-sizing: border-box;
+      text-decoration: none;
+      border: none;
+      outline: none;
+    }
+
+    html {
+      font-size: 62.5%;
+    }
+
+    .top-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 20px;
+      background-color: black;
+      z-index: 110;
+    }
+
+    header {
+      margin-top: 20px;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 1rem 9%;
+      background-color: black;
+      filter: drop-shadow(10px);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 100;
+      box-sizing: border-box;
+    }
+
+    .logo {
+      font-size: 3rem;
+      color: #b74b4b;
+      font-weight: 800;
+      cursor: pointer;
+      transition: 0.5s ease;
+    }
+
+    .logo:hover {
+      transform: scale(1.1);
+    }
+
+    /* Ajout du bouton burger */
+    .menu-toggle {
+      display: none;
+      cursor: pointer;
+      width: 30px;
+      height: 21px;
+      position: relative;
+      z-index: 101;
+    }
+    
+    .menu-toggle span {
+      display: block;
+      position: absolute;
+      height: 3px;
+      width: 100%;
+      background: #b74b4b;
+      border-radius: 3px;
+      transition: all 0.3s ease;
+    }
+    
+    .menu-toggle span:nth-child(1) { top: 0; }
+    .menu-toggle span:nth-child(2) { top: 9px; }
+    .menu-toggle span:nth-child(3) { top: 18px; }
+
+    nav a {
+      font-size: 1.8rem;
+      color: white;
+      margin-left: 4rem;
+      font-weight: 500;
+      transition: 0.3s ease;
+      border-bottom: 3px solid transparent;
+    }
+
+    nav a:hover,
+    nav a.active {
+      color: #b74b4b;
+      border-bottom: 3px solid #b74b4b;
+    }
+
+    @media (max-width: 995px) {
+      .menu-toggle {
+        display: block;
+      }
+      
+      nav {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 40%;
+        height: 100vh;
+        padding-top: 8rem;
+        background-color: #161616;
+        transition: all 0.5s ease;
+        z-index: 100;
+      }
+      
+      nav.active {
+        right: 0;
+      }
+
+      nav a {
+        display: block;
+        font-size: 2rem;
+        margin: 3rem 2rem;
+        padding: 1rem;
+      }
+
+      nav a:hover,
+      nav a.active {
+        padding: 1rem;
+        border-radius: 0.5rem;
+        border-bottom: 0.5rem solid #b74b4b;
+      }
+    }
+
+    section {
+      min-height: 200vh;
+      padding: 8rem 9% 5rem;
+      margin-top: 0;
+    }
+
+    .home {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      gap: 8rem;
+      background-color: black;
+      flex-wrap: wrap;
+    }
+
+    .home-content {
+      flex: 1 1 100%;
+      max-width: 100%;
+    }
+
+    .home-content h3 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      font-weight: 700;
+    }
+
+    .home-content p {
+      font-size: 1.5rem;
+      line-height: 1.9;
+    }
+
+    span {
+      color: #b74b4b;
+    }
+
+    .image-text-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .image-text-row img {
+      flex-shrink: 0;
+      max-width: 100%;
+      height: auto;
+    }
+
+    .image-text-row p {
+      flex: 1;
+      line-height: 1.8;
+    }
+
+    @media (max-width: 1000px) {
+      .home {
+        gap: 4rem;
+      }
+    }
+
+    @media (max-width: 995px) {
+      .home {
+        flex-direction: column;
+        margin: 5rem 4rem;
+      }
+
+      .home-content h3 {
+        font-size: 2.5rem;
+      }
+    }
+
+    /* Ajouts pour la compatibilite mobile des images */
+    @media (max-width: 768px) {
+      .image-text-row {
+        flex-direction: column;
+      }
+      
+      .image-text-row img {
+        width: 100%;
+        max-width: 300px;
+        margin: 0 auto;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="top-bar"></div>
+
+  <!-- Header modifie avec bouton burger -->
+  <header>
+    <a href="index.html" class="logo"></a>
+    <div class="menu-toggle" id="mobile-menu">
+      <span></span><span></span><span></span>
+    </div>
+    <nav id="main-nav">
+      <a href="index.html">Home</a>
+      <a href="#" class="active">About me</a>
+      <a href="Skills .html">Skills</a>
+      <a href="Experience.html">Experience</a>
+      <a href="Projects.html">Projects</a>
+	  <a href="AI.html">AI Chat</a>
+      <a href="Contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <section class="home">
+    <!-- [CONTENU ABOUT ME] -->
+    <div class="home-content">
+      <h3><span>My personality :</span></h3>
+      <p>🧠 ENTJ - The Commander (also known as The Strategist)</p>
+      <div class="image-text-row">
+        <img src="res/entj.jpg" alt="ENTJ image" style="max-width: 100px;" />
+        <p>
+          ENTJs are among the rarest personality types, making up approximately 1.8% of the population. Known for their strategic mindset and natural leadership, they are driven by long-term vision, structure, and a strong desire to tackle challenges. Their strength lies in organizing and optimizing complex projects through logic, efficiency, and decisive action. Ambitious and results-oriented, ENTJs turn ideas into reality with confidence and determination.
+        </p>
+      </div>
+
+      <p style="margin-top: 1rem; font-size: 1.6rem;">
+        If you want to learn more about the ENTJ personality type, feel free to visit this  
+        <a href="https://www.16personalities.com/entj-personality" target="_blank" rel="noopener noreferrer" style="color: #b74b4b; text-decoration: underline;">
+          detailed ENTJ profile
+        </a>.
+      </p>
+
+      <p style="margin-top: 1rem; font-size: 1.6rem;">
+        Want to explore your own personality type? Take the free 
+        <a href="https://www.16personalities.com/free-personality-test" target="_blank" rel="noopener noreferrer" style="color: #b74b4b; text-decoration: underline;">
+          Myers-Briggs test
+        </a>.
+      </p>
+
+      <h3><span>My Favorite Quote :</span></h3>
+
+      <p>"It's not what happens to you, but how you react to it that matters." - Epictetus</p>
+
+      <h3><span>Where I Was Born :</span></h3>
+
+      <div class="image-text-row">
+        <img src="res/M.jpg" alt="Metlaoui image" style="max-width: 100%;" />
+        <p>
+          I was born in <strong>Metlaoui</strong>, a desert town located in the heart of the Tunisian West - a region shaped by sun, silence, and stone.
+
+          With its red hills, dry air, and dusty horizon, Metlaoui feels like a real-life Western movie set. The land is tough, quiet, and beautiful in its own raw way.
+
+          Growing up there taught me more than any classroom could. It taught me discipline, endurance, and clarity of thought. When you grow up surrounded by silence and heat, you learn to listen to yourself, to build with purpose, and to move forward even when the terrain is rough.
+
+          That environment forged in me a personality that is resilient, focused, and deeply strategic.
+        </p>
+      </div>
+
+      <p style="margin-top: 1rem; font-size: 1.6rem;">
+        Want to learn more about Metlaoui?   
+        <a href="https://en.wikipedia.org/wiki/Metlaoui" target="_blank" rel="noopener noreferrer" style="color: #b74b4b; text-decoration: underline;">
+          Wikipedia page
+        </a>.
+      </p>
+
+      <h3><span>What I Do for Living :</span></h3>
+
+      <p>
+        I work as a mechanical estimator for industrial metal fabrication projects across North America.
+        My role is to analyze technical drawings, calculate production costs, and deliver accurate offers for clients based in Canada and the United States.
+
+        I collaborate with engineering and production teams to ensure that every project is feasible, cost-effective, and delivered on time.
+        My work combines technical precision, strategic thinking, and attention to detail - all aligned with a commitment to quality.
+
+        My focus: delivering precise estimates that balance quality, cost, and deadlines - every time.
+      </p>
+
+      <h3><span>My Favorite Music Track :</span></h3>
+      <p>
+        "The Raising Fighting Spirit"  
+        This track captures my spirit : focused, relentless, and full of drive.
+      </p>
+
+      <br />
+      <audio controls>
+        <source src="res/The Raising Fighting Spirit.mp3" type="audio/mpeg" />
+        Your browser does not support the audio element.
+      </audio>
+
+      <p style="margin-top: 1.2rem; font-size: 1.4rem;">
+        Feel the energy that keeps me moving forward.
+      </p>
+    </div>
+  </section>
+
+  <script>
+    // Script pour le menu mobile
+    document.getElementById('mobile-menu').addEventListener('click', function() {
+      this.classList.toggle('active');
+      document.getElementById('main-nav').classList.toggle('active');
+    });
+
+    window.addEventListener('load', () => {
+      document.body.style.visibility = 'visible';
+    });
+  </script>
+</body>
+</html>

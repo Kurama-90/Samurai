@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Debut SEO -->
+<title>Mohamed Hamed | Cost Estimator & Industrial Designer</title>
+<meta name="description" content="Personal website of Mohamed Hamed, showcasing expertise in industrial cost estimation and 3D design">
+<meta name="keywords" content="cost estimator, mechanical designer, 3D modeling, personal website">
+<!-- Fin SEO -->
+<!-- Favicon (optionnel) -->
+<link rel="icon" href="res/favicon.png" type="image/png">
+<link rel="alternate icon" href="favicon.ico" type="image/x-icon">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      background-color: black;
+      font-family: 'Poppins', sans-serif;
+      color: white;
+    }
+
+    body {
+      visibility: hidden;
+      width: 100%;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    * {
+      box-sizing: border-box;
+      text-decoration: none;
+      border: none;
+      outline: none;
+    }
+
+    html {
+      font-size: 62.5%;
+    }
+
+    .top-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 20px;
+      background-color: black;
+      z-index: 110;
+    }
+
+    header {
+      margin-top: 20px;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 1rem 9%;
+      background-color: black;
+      filter: drop-shadow(10px);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 100;
+      box-sizing: border-box;
+    }
+
+    .logo {
+      font-size: 3rem;
+      color: #b74b4b;
+      font-weight: 800;
+      cursor: pointer;
+      transition: 0.5s ease;
+    }
+
+    .logo:hover {
+      transform: scale(1.1);
+    }
+
+    /* Ajout du bouton burger */
+    .menu-toggle {
+      display: none;
+      cursor: pointer;
+      width: 30px;
+      height: 21px;
+      position: relative;
+      z-index: 101;
+    }
+    
+    .menu-toggle span {
+      display: block;
+      position: absolute;
+      height: 3px;
+      width: 100%;
+      background: #b74b4b;
+      border-radius: 3px;
+      transition: all 0.3s ease;
+    }
+    
+    .menu-toggle span:nth-child(1) { top: 0; }
+    .menu-toggle span:nth-child(2) { top: 9px; }
+    .menu-toggle span:nth-child(3) { top: 18px; }
+
+    nav a {
+      font-size: 1.8rem;
+      color: white;
+      margin-left: 4rem;
+      font-weight: 500;
+      transition: 0.3s ease;
+      border-bottom: 3px solid transparent;
+    }
+
+    nav a:hover,
+    nav a.active {
+      color: #b74b4b;
+      border-bottom: 3px solid #b74b4b;
+    }
+
+    @media (max-width: 995px) {
+      .menu-toggle {
+        display: block;
+      }
+      
+      nav {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 40%;
+        height: 100vh;
+        padding-top: 8rem;
+        background-color: #161616;
+        transition: all 0.5s ease;
+        z-index: 100;
+      }
+      
+      nav.active {
+        right: 0;
+      }
+
+      nav a {
+        display: block;
+        font-size: 2rem;
+        margin: 3rem 2rem;
+        padding: 1rem;
+      }
+
+      nav a:hover,
+      nav a.active {
+        padding: 1rem;
+        border-radius: 0.5rem;
+        border-bottom: 0.5rem solid #b74b4b;
+      }
+    }
+
+    section {
+      min-height: 200vh;
+      padding: 8rem 9% 5rem;
+      margin-top: 0;
+    }
+
+    .home {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      gap: 8rem;
+      background-color: black;
+      flex-wrap: wrap;
+    }
+
+    .home-content {
+      flex: 1 1 100%;
+      max-width: 100%;
+    }
+
+    .home-content h3 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      font-weight: 700;
+    }
+
+    .home-content p {
+      font-size: 1.5rem;
+      line-height: 1.9;
+    }
+
+    span {
+      color: #b74b4b;
+    }
+
+    .image-text-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .image-text-row img {
+      flex-shrink: 0;
+      max-width: 100%;
+      height: auto;
+    }
+
+    .image-text-row p {
+      flex: 1;
+      line-height: 1.8;
+    }
+
+    /* Styles pour les medias responsive */
+    .video-container {
+      width: 100%;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .video-player {
+      width: 100%;
+      height: auto;
+    }
+    
+    .responsive-image {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+    }
+
+    @media (max-width: 1000px) {
+      .home {
+        gap: 4rem;
+      }
+    }
+
+    @media (max-width: 995px) {
+      .home {
+        flex-direction: column;
+        margin: 5rem 4rem;
+      }
+
+      .home-content h3 {
+        font-size: 2.5rem;
+      }
+      
+      .video-container {
+        width: 100%;
+        padding: 0 1rem;
+      }
+    }
+    
+    @media (max-width: 600px) {
+      .home-content h3 {
+        font-size: 2rem;
+      }
+      
+      .home-content p {
+        font-size: 1.4rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="top-bar"></div>
+
+  <!-- Header modifie avec bouton burger -->
+  <header>
+    <a href="index.html" class="logo"></a>
+    <div class="menu-toggle" id="mobile-menu">
+      <span></span><span></span><span></span>
+    </div>
+    <nav id="main-nav">
+      <a href="index.html">Home</a>
+      <a href="About_me.html" >About me</a>
+      <a href="Skills .html">Skills</a>
+      <a href="Experience.html">Experience</a>
+      <a href="#"class="active">Projects</a>
+	  <a href="AI.html">AI Chat</a>
+      <a href="Contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <section class="home">
+    <!-- [CONTENU ABOUT ME] -->
+    <div class="home-content">
+      <h3><span>Latest Personal Projects :</span></h3>
+	  
+	  <h3><span>Homemade CNC Laser Machine - Full Simulation with G-code Execution </span><h3>
+	  
+<div class="video-container">
+  <video controls class="video-player">
+    <source src="res/V1.mp4" type="video/mp4">
+    Votre navigateur ne supporte pas la lecture de videos.
+  </video>
+</div>
+
+<p>- Circuit and motor simulation using Proteus ISIS</p>
+<p>- G-code parsing and transmission using a custom software developed to control axis movements</p>
+<p>- Real-time interaction between virtual hardware and the control software.</p>
+<p>- The system reads G-code line by line and sends the motion commands to the simulated motors.</p>
+<p>This project reflects how embedded systems, motion control, and desktop automation can work together through simulation and software engineering.</p>
+
+	  <h3><span>Algorithmic Analysis and Forecasting: Practical Exercise!</span><h3>
+	  
+<div class="video-container">
+  <video controls class="video-player">
+    <source src="res/V2.mp4" type="video/mp4">
+    Votre navigateur ne supporte pas la lecture de videos.
+  </video>
+</div>
+
+<p>In this exercise, I used trading charts as a data source, not to speculate, but because they are publicly available, real-time data, ideal for testing algorithms and simulating automated decision-making processes.</p>
+<p>- Applied algorithmic analysis.</p>
+<p>- Automating both decision-making and subsequent actions.</p>
+<p>- Managing real-time data flows.</p>
+<p>- And most importantly, enhancing my analytical skills.</p>
+
+      <h3><span>Mini CNC Machine (2-Axis Laser) - Design & Fabrication</span></h3>
+	  
+	  <div class="video-container">
+  <img src="res/CNC1.png" alt="Mini CNC Machine Design" class="responsive-image">
+</div>
+
+	  
+	    <p>- Fully designed and fabricated a custom 2-axis laser CNC machine from scratch.</p>
+  <p>- Engineered precise mechanical components using electromechanical principles.</p>
+  <p>- Integrated stepper motors and laser module for accurate material engraving.</p>
+  <p>- Achieved high-precision motion control for reliable 2D laser operations.</p>
+	  
+
+      <h3><span>Data & AI Projects :</span></h3>
+		
+		      <p style="margin-top: 1rem; font-size: 1.6rem;">
+        Discover all these open-source projects on my  
+        <a href="https://github.com/Kurama-90?tab=repositories" target="_blank" rel="noopener noreferrer" style="color: #b74b4b; text-decoration: underline;">
+          GitHub page
+        </a>.
+      </p>
+
+  <p>- <strong>GUI-PDF-to-Excel</strong> - Desktop app with a user-friendly interface to convert structured PDF tables into Excel sheets using intelligent parsing.</p>
+  <p>- <strong>Web-App-Flask-PDF-to-Excel-Table</strong> - A lightweight Flask web application that extracts tables from PDFs and exports them as Excel files.</p>
+  <p>- <strong>GPT-3.5 Voice Assistant for Android (QPython)</strong> - AI-powered voice assistant built using OpenAI's GPT-3.5 and QPython for Android interaction.</p>
+  <p>- <strong>PDF-Table-Extraction-to-Excel</strong> - Python script that identifies and extracts table structures from PDFs and saves them to Excel with layout preservation.</p>
+  <p>- <strong>OCR and Text Extraction from Scanned PDFs</strong> - Combines OCR (e.g., Tesseract) and NLP to extract text from scanned or image-based PDFs, enabling searchable output.</p>
+  
+    </div>
+  </section>
+
+  <script>
+    // Script pour le menu mobile
+    document.getElementById('mobile-menu').addEventListener('click', function() {
+      this.classList.toggle('active');
+      document.getElementById('main-nav').classList.toggle('active');
+    });
+
+    window.addEventListener('load', () => {
+      document.body.style.visibility = 'visible';
+    });
+  </script>
+</body>
+</html>

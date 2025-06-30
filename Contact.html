@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mohamed Hamed | Contact</title>
+  <meta name="description" content="Contact Mohamed Hamed, Cost Estimator & Industrial Designer">
+  <meta name="keywords" content="contact, cost estimator, mechanical designer">
+  <link rel="icon" href="res/favicon.png" type="image/png">
+  <link rel="alternate icon" href="res/favicon.ico" type="image/x-icon">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+  <style>
+  
+  
+    html, body {
+      margin: 0;
+      padding: 0;
+      background-color: black;
+      font-family: 'Poppins', sans-serif;
+      color: white;
+	  
+    }
+	        html {
+            font-size: 62.5%;
+            overflow-y: scroll;
+        }
+
+    body {
+      visibility: hidden;
+      width: 100%;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    * {
+      box-sizing: border-box;
+      text-decoration: none;
+      border: none;
+      outline: none;
+    }
+
+    html {
+      font-size: 62.5%;
+    }
+
+    .top-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 20px;
+      background-color: black;
+      z-index: 110;
+    }
+
+    header {
+      margin-top: 20px;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 1rem 9%;
+      background-color: black;
+      filter: drop-shadow(10px);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 100;
+      box-sizing: border-box;
+    }
+
+    .logo {
+      font-size: 3rem;
+      color: #b74b4b;
+      font-weight: 800;
+      cursor: pointer;
+      transition: 0.5s ease;
+    }
+
+    .logo:hover {
+      transform: scale(1.1);
+    }
+
+    .menu-toggle {
+      display: none;
+      cursor: pointer;
+      width: 30px;
+      height: 21px;
+      position: relative;
+      z-index: 101;
+    }
+    
+    .menu-toggle span {
+      display: block;
+      position: absolute;
+      height: 3px;
+      width: 100%;
+      background: #b74b4b;
+      border-radius: 3px;
+      transition: all 0.3s ease;
+    }
+    
+    .menu-toggle span:nth-child(1) { top: 0; }
+    .menu-toggle span:nth-child(2) { top: 9px; }
+    .menu-toggle span:nth-child(3) { top: 18px; }
+
+    nav a {
+      font-size: 1.8rem;
+      color: white;
+      margin-left: 4rem;
+      font-weight: 500;
+      transition: 0.3s ease;
+      border-bottom: 3px solid transparent;
+    }
+
+    nav a:hover,
+    nav a.active {
+      color: #b74b4b;
+      border-bottom: 3px solid #b74b4b;
+    }
+
+    @media (max-width: 995px) {
+      .menu-toggle {
+        display: block;
+      }
+      
+      nav {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 40%;
+        height: 100vh;
+        padding-top: 8rem;
+        background-color: #161616;
+        transition: all 0.5s ease;
+        z-index: 100;
+      }
+      
+      nav.active {
+        right: 0;
+      }
+
+      nav a {
+        display: block;
+        font-size: 2rem;
+        margin: 3rem 2rem;
+        padding: 1rem;
+      }
+
+      nav a:hover,
+      nav a.active {
+        padding: 1rem;
+        border-radius: 0.5rem;
+        border-bottom: 0.5rem solid #b74b4b;
+      }
+    }
+
+    section {
+      min-height: 100vh;
+      padding: 8rem 9% 5rem;
+      margin-top: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .contact-container {
+      width: 100%;
+      max-width: 800px;
+      text-align: center;
+    }
+
+    .contact-title {
+      font-size: 3.5rem;
+      margin-bottom: 3rem;
+      color: #b74b4b;
+    }
+
+    /* Style des icônes sociales identique à l'index */
+    .social-icons {
+      margin: 2rem 0;
+	  margin-bottom: 0rem; 
+    }
+
+    .social-icons a {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      width: 4rem;
+      height: 4rem;
+      background-color: transparent;
+      border: 0.2rem solid #b74b4b;
+      border-radius: 50%;
+      margin: 0 1.5rem 3rem 0;
+      transition: 0.3s ease;
+      color: #b74b4b;
+      font-size: 2.8rem;
+    }
+
+    .social-icons a:hover {
+      color: black;
+      transform: scale(1.3) translateY(-5px);
+      background-color: #b74b4b;
+      box-shadow: 0 0 25px #b74b4b;
+    }
+
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    .contact-form label {
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+      text-align: left;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      padding: 1.2rem;
+      margin-bottom: 2rem;
+      border-radius: 0.5rem;
+      font-size: 1.6rem;
+      background-color: #333;
+      color: white;
+      border: 1px solid #444;
+    }
+
+    .contact-form textarea {
+      resize: vertical;
+      min-height: 150px;
+    }
+
+    .contact-form button {
+      background-color: #b74b4b;
+      color: white;
+      padding: 1.5rem;
+      border-radius: 0.5rem;
+      font-size: 1.8rem;
+      cursor: pointer;
+      transition: 0.3s;
+      border: none;
+      margin-top: 1rem;
+    }
+
+    .contact-form button:hover {
+      background-color: #9a3a3a;
+      transform: scale(1.02);
+    }
+
+    @media (max-width: 768px) {
+      .contact-title {
+        font-size: 2.8rem;
+      }
+      
+      .contact-form {
+        padding: 0 1.5rem;
+      }
+      
+      .social-icons a {
+        margin: 0 1rem 3rem 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="top-bar"></div>
+
+  <header>
+    <a href="index.html" class="logo"></a>
+    <div class="menu-toggle" id="mobile-menu">
+      <span></span><span></span><span></span>
+    </div>
+    <nav id="main-nav">
+      <a href="index.html">Home</a>
+      <a href="About_me.html">About me</a>
+      <a href="Skills .html">Skills</a>
+      <a href="Experience.html">Experience</a>
+      <a href="Projects.html">Projects</a>
+	  <a href="AI.html">AI Chat</a>
+      <a href="#" class="active">Contact</a>
+    </nav>
+  </header>
+
+  <section>
+    <div class="contact-container">
+      <h1 class="contact-title"></h1>
+      
+      <div class="social-icons">
+        <a href="https://www.linkedin.com/in/mohamed-hamed-820350212" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+          <i class="fa-brands fa-linkedin"></i>
+        </a>
+        <a href="https://github.com/Kurama-90" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+          <i class="fa-brands fa-github"></i>
+        </a>
+        <a href="https://www.facebook.com/mohamed.hamed.75491" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+          <i class="fa-brands fa-facebook"></i>
+        </a>
+      </div>
+
+      <form class="contact-form" action="https://formspree.io/f/mnnjzlkn" method="POST">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" required></textarea>
+
+        <button type="submit">Send Message</button>
+      </form>
+    </div>
+  </section>
+
+  <script>
+    // Script pour le menu mobile
+    document.getElementById('mobile-menu').addEventListener('click', function() {
+      this.classList.toggle('active');
+      document.getElementById('main-nav').classList.toggle('active');
+    });
+
+    window.addEventListener('load', () => {
+      document.body.style.visibility = 'visible';
+    });
+  </script>
+</body>
+</html>
