@@ -212,29 +212,69 @@
     }
 
     /* Styles pour les medias responsive */
-    .video-container {
-      width: 100%;
-      max-width: 800px;
-      margin: 0 auto;
-    }
-    
-    .video-player {
-      width: 100%;
-      height: auto;
-    }
-    
-    .responsive-image {
-      max-width: 100%;
-      height: auto;
-      display: block;
-      margin: 0 auto;
-    }
+.video-container {
+  max-width: 600px;
+  height: 300px;
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+  background-color: #000;
+  cursor: pointer;
+}
 
-    @media (max-width: 1000px) {
-      .home {
-        gap: 4rem;
-      }
-    }
+.video-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.video-container .play-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60px;
+  height: 60px;
+  background-color: rgba(0,0,0,0.6);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.video-container .play-button::after {
+  content: "";
+  display: block;
+  width: 0;
+  height: 0;
+  border-top: 15px solid transparent;
+  border-bottom: 15px solid transparent;
+  border-left: 25px solid #b74b4b;
+  margin-left: 5px;
+}
+    
+.responsive-image {
+  max-width: 400px; /* largeur max sur PC */
+  width: 100%;      /* s'adapte à l'écran */
+  height: auto;     /* hauteur automatique */
+  display: block;
+  margin: 0 auto;   /* centrer horizontalement */
+}
+
+@media (max-width: 600px) {
+  .responsive-image {
+    max-width: 100%; /* sur mobile, prend toute la largeur */
+  }
+}
+
 
     @media (max-width: 995px) {
       .home {
@@ -247,7 +287,7 @@
       }
       
       .video-container {
-        width: 100%;
+        max-width: 100%;
         padding: 0 1rem;
       }
     }
@@ -259,6 +299,10 @@
       
       .home-content p {
         font-size: 1.4rem;
+      }
+      .video-container {
+        max-width: 100%;
+        height: 150px;
       }
     }
   </style>
@@ -275,11 +319,11 @@
     </div>
     <nav id="main-nav">
       <a href="index.html">Home</a>
-      <a href="About_me.html" >About me</a>
+      <a href="About_me.html">About me</a>
       <a href="Skills .html">Skills</a>
       <a href="Experience.html">Experience</a>
-      <a href="#"class="active">Personal Projects</a>
-	  <a href="AI.html">AI Chat</a>
+      <a href="#" class="active">Personal Projects</a>
+      <a href="AI.html">AI Chat</a>
       <a href="Contact.html">Contact</a>
     </nav>
   </header>
@@ -288,14 +332,12 @@
     <!-- [CONTENU ABOUT ME] -->
     <div class="home-content">
       <h3><span>Latest Personal Projects :</span></h3>
-	  
-	  <h3><span>Homemade CNC Laser Machine - Full Simulation with G-code Execution </span><h3>
-	  
-<div class="video-container">
-  <video controls class="video-player">
-    <source src="res/V1.mp4" type="video/mp4">
-    Votre navigateur ne supporte pas la lecture de videos.
-  </video>
+      
+      <h3><span>Homemade CNC Laser Machine - Full Simulation with G-code Execution </span><h3>
+      
+<div class="video-container" data-video-id="mUzL77pfJMY" onclick="loadYouTubeVideo(this)">
+  <img src="https://img.youtube.com/vi/mUzL77pfJMY/maxresdefault.jpg" loading="lazy" alt="CNC Laser Machine Preview">
+  <div class="play-button"></div>
 </div>
 
 <p>- Circuit and motor simulation using Proteus ISIS</p>
@@ -304,13 +346,11 @@
 <p>- The system reads G-code line by line and sends the motion commands to the simulated motors.</p>
 <p>This project reflects how embedded systems, motion control, and desktop automation can work together through simulation and software engineering.</p>
 
-	  <h3><span>Algorithmic Analysis and Forecasting: Practical Exercise!</span><h3>
-	  
-<div class="video-container">
-  <video controls class="video-player">
-    <source src="res/V2.mp4" type="video/mp4">
-    Votre navigateur ne supporte pas la lecture de videos.
-  </video>
+      <h3><span>Algorithmic Analysis and Forecasting: Practical Exercise!</span><h3>
+      
+<div class="video-container" data-video-id="LOt2jEBt5BY" onclick="loadYouTubeVideo(this)">
+  <img src="https://img.youtube.com/vi/LOt2jEBt5BY/maxresdefault.jpg" loading="lazy" alt="Algorithmic Analysis Preview">
+  <div class="play-button"></div>
 </div>
 
 <p>In this exercise, I used trading charts as a data source, not to speculate, but because they are publicly available, real-time data, ideal for testing algorithms and simulating automated decision-making processes.</p>
@@ -320,21 +360,21 @@
 <p>- And most importantly, enhancing my analytical skills.</p>
 
       <h3><span>Mini CNC Machine (2-Axis Laser) - Design & Fabrication</span></h3>
-	  
-	  <div class="video-container">
-  <img src="res/CNC1.png" alt="Mini CNC Machine Design" class="responsive-image">
-</div>
+      
+<img src="res/CNC1.png" alt="Mini CNC Machine Design" class="responsive-image">
 
-	  
-	    <p>- Fully designed and fabricated a custom 2-axis laser CNC machine from scratch.</p>
-  <p>- Engineered precise mechanical components using electromechanical principles.</p>
-  <p>- Integrated stepper motors and laser module for accurate material engraving.</p>
-  <p>- Achieved high-precision motion control for reliable 2D laser operations.</p>
-	  
+
+
+      
+        <p>- Fully designed and fabricated a custom 2-axis laser CNC machine from scratch.</p>
+        <p>- Engineered precise mechanical components using electromechanical principles.</p>
+        <p>- Integrated stepper motors and laser module for accurate material engraving.</p>
+        <p>- Achieved high-precision motion control for reliable 2D laser operations.</p>
+      
 
       <h3><span>Data & AI Projects :</span></h3>
-		
-		      <p style="margin-top: 1rem; font-size: 1.6rem;">
+        
+              <p style="margin-top: 1rem; font-size: 1.6rem;">
         Discover all these open-source projects on my  
         <a href="https://github.com/Kurama-90?tab=repositories" target="_blank" rel="noopener noreferrer" style="color: #b74b4b; text-decoration: underline;">
           GitHub page
@@ -360,6 +400,19 @@
     window.addEventListener('load', () => {
       document.body.style.visibility = 'visible';
     });
+
+    // Fonction pour charger les vidéos YouTube au clic
+    function loadYouTubeVideo(element) {
+      const videoId = element.getAttribute('data-video-id');
+      element.innerHTML = `
+        <iframe 
+          src="https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0" 
+          frameborder="0" 
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+          allowfullscreen
+          loading="lazy">
+        </iframe>`;
+    }
   </script>
 </body>
 </html>
