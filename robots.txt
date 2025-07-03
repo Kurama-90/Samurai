@@ -1,0 +1,4 @@
+User-agent: *
+Disallow:
+
+Sitemap: https://kurama-90.github.io/Samurai/sitemap.xml
