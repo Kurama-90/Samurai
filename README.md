@@ -1,7 +1,6 @@
 # Samurai
 
-## 🎥 Demo Video
 
-Check out the demo of the Samurai-themed personal website:
 
-[![Watch the video](https://img.youtube.com/vi/6ttTFY25FYY/hqdefault.jpg)](https://www.youtube.com/watch?v=6ttTFY25FYY)
+https://github.com/user-attachments/assets/4651c618-b3cf-4156-a7c2-4b8c6bd93188
+
